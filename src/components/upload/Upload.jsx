@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { useReactToPrint } from 'react-to-print';
-import JsonToHtml from '../json-to-html/JsonToHtml';
+import JsonToHTMLTable from '../json-to-html-table/JsonToHTMLTable';
 
 
 export default function Upload() {
@@ -28,11 +28,8 @@ export default function Upload() {
         <input type="file" onChange={handleChange} />
       </div>
       <br />
-      {/* {"uploaded file content -- " + files} */}
-      <br />
       <section ref={print}>
-
-      <JsonToHtml json={JSON.parse(JSON.stringify(files))} />
+        <JsonToHTMLTable json={files} />
       </section>
       <br />
       <div className="button-container">
