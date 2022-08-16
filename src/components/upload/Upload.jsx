@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import { useReactToPrint } from 'react-to-print';
 import JsonToHtml from '../json-to-html/JsonToHtml';
 
 
 export default function Upload() {
   const [files, setFiles] = useState("");
+  const print = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => print.current,
+  })
 
   const handleChange = e => {
     const fileReader = new FileReader();
@@ -23,7 +28,14 @@ export default function Upload() {
       <br />
       {/* {"uploaded file content -- " + files} */}
       <br />
+      <section ref={print}>
+
       <JsonToHtml json={JSON.parse(JSON.stringify(files))} />
+      </section>
+      <br />
+      <div className="button-container">
+        <button onClick={handlePrint}>Print</button>
+      </div>
     </>
   )
 }
