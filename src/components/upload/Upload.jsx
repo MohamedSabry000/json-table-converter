@@ -5,6 +5,7 @@ import JsonToHtml from '../json-to-html/JsonToHtml';
 
 export default function Upload() {
   const [files, setFiles] = useState("");
+
   const print = useRef();
   const handlePrint = useReactToPrint({
     content: () => print.current,
@@ -22,9 +23,10 @@ export default function Upload() {
 
   return (
     <>
-      <h1>Upload Json file - Example</h1>
-
-      <input type="file" onChange={handleChange} />
+      <h1 style={{textAlign: "center"}}>Upload Json file</h1>
+      <div className='input-file-container'>
+        <input type="file" onChange={handleChange} />
+      </div>
       <br />
       {/* {"uploaded file content -- " + files} */}
       <br />

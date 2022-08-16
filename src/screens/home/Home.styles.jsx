@@ -1,6 +1,20 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  .input-file-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  input[type="file"] {
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    outline: none;
+  }
+
   tabla {
     border-collapse: collapse;
     width: 100%;
