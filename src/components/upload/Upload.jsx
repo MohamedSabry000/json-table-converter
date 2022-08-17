@@ -24,11 +24,12 @@ export default function Upload() {
   return (
     <>
       <h1 style={{textAlign: "center"}}>Upload Json file</h1>
-      <div className='input-file-container'>
+      <div className='input-file-container' style={{display: "flex", justifyContent:"space-around"}}>
         <input type="file" onChange={handleChange} />
+        <textarea value={files} onChange={e=>setFiles(e.target.value)} rows="10" cols="50" />
       </div>
       <br />
-      <section ref={print}>
+      <section ref={print} style={{display: "flex", justifyContent:"center"}}>
         <JsonToHTMLTable json={files} />
       </section>
       <br />
